@@ -37,7 +37,6 @@ export class ViewComponent implements OnInit {
 
   ngOnInit(): void {
     this.getFileuploads();
-    console.log("below init call");
     
   }
 
@@ -53,29 +52,23 @@ export class ViewComponent implements OnInit {
     
     this.viewService.getFileUploads().
       subscribe(fileUploads => {
-        console.log(fileUploads);
     
         this.fileUploads = fileUploads;
         this.latestFileId = fileUploads[0]["id"];
-        console.log("latest file set to");
-        console.log(fileUploads[0]["id"]);
         this.getLatestFileRecords(this.latestFileId);
       });  
   }
   
   getLatestFileRecords(FileId : number): void {
-    console.log(FileId);
     this.viewService.getFileRecords(FileId).
       subscribe((response : FileRecord[]) => {        
         this.lastestFileRecords = response;
-        console.log(response);
         this.getValues();
       } 
         );
       }
 /*Disclaimer: This is a sad and desperate attempt, born from fatigue - my mind is too tired to think this through :( */ 
   getValues(): void {
-    console.log("entered gevalues");
     this.lastestFileRecords.forEach((item, index) => {
       if(item.hourNumber === index){
         this.exportValues.push(item.exportEnergy);
