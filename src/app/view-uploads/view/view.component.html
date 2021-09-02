@@ -1,0 +1,19 @@
+
+<mat-tab-group>
+  <mat-tab label="Uploads">
+<div class="card mt-3">
+  <div class="card-body">
+<h5 class="card-title">File Uploads</h5>
+
+
+<ul class="list-group">
+    <li class="list-group-item" *ngFor="let file of fileUploads">
+      <button (click)="openModal(file.id)" class="btn btn-outline-primary">View Records</button> &nbsp;&nbsp; <span  class="font-weight-normal" >{{file.fileName}} -
+      </span>
+     <i>submitted</i>: {{file.createDate}}
+    </li>
+  </ul>
+</div></div>
+</mat-tab>
+<mat-tab label="Chart"> <app-graph [fileId]='latestFileId'></app-graph> </mat-tab>
+</mat-tab-group>

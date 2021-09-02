@@ -1,0 +1,21 @@
+<div class="card mx-auto mt-3" style="width: 18rem;">
+    <div class="card-body">
+<h5 class="card-title">File Upload</h5>
+
+<label>Select a File (&lt; 1MB)</label><br/>
+<input type="file" (change)="onFileChange($event)" /><br/><br/>
+<button (click)="uploadFile()" [disabled]="!theFile" class="btn btn-primary">Upload File</button><br/><br/>
+<!-- ** BEGIN: INFORMATION MESSAGE AREA ** -->
+<div *ngIf="messages.length > 0">
+    <span *ngFor="let msg of messages">
+        {{msg}}
+        <br />
+        </span>
+
+    </div>
+</div></div>
+
+   
+
+
+

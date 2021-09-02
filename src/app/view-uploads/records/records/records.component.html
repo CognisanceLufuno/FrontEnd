@@ -1,0 +1,67 @@
+
+ <table mat-table [dataSource]="dataSource"y style="width:100%; margin-top: 10pt;">
+
+    
+  <ng-container matColumnDef="Actions">
+    <th mat-header-cell *matHeaderCellDef style="text-align: center;"> Actions </th>
+    <td mat-cell *matCellDef="let currentFileRecords" style="text-align: center;"> 
+      <span *ngIf="currentFileRecords.isApproved"><button class="btn btn-secondary">Approved</button></span>
+    <span *ngIf="!currentFileRecords.isApproved">
+      <button class="btn btn-primary" (click)="openModal(currentFileRecords)">Edit</button> | <button (click)="approveRecord(currentFileRecords)" class="btn btn-success">Approve</button>
+    </span>
+     </td>
+  </ng-container>
+
+  <ng-container matColumnDef="OperatingDate">
+    <th mat-header-cell *matHeaderCellDef> Operating Date </th>
+    <td mat-cell *matCellDef="let currentFileRecords"> {{currentFileRecords.operatingDate | date: 'dd-MM-yyyy'}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="HourNumber">
+    <th mat-header-cell *matHeaderCellDef> Time </th>
+    <td mat-cell *matCellDef="let currentFileRecords"> {{currentFileRecords.hourNumber }}:00 </td>
+  </ng-container>
+
+  <ng-container matColumnDef="ServicePoint">
+    <th mat-header-cell *matHeaderCellDef> Service Point </th>
+    <td mat-cell *matCellDef="let currentFileRecords"> {{currentFileRecords.servicePoint}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="ImportEnergy">
+    <th mat-header-cell *matHeaderCellDef> Import Energy </th>
+    <td mat-cell *matCellDef="let currentFileRecords" style="text-align: center;"> {{currentFileRecords.importEnergy}}</td>
+  </ng-container>
+  
+    <ng-container matColumnDef="ExportEnergy">
+      <th mat-header-cell *matHeaderCellDef> Export Energy </th>
+      <td mat-cell *matCellDef="let currentFileRecords" style="text-align: center;"> {{currentFileRecords.ExportEnergy}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="ImportLeadingReactive">
+      <th mat-header-cell *matHeaderCellDef> ImportLeadingReactive </th>
+      <td mat-cell *matCellDef="let currentFileRecords"> {{currentFileRecords.importLeadingReactive}} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="ExportLeadingReactive">
+      <th mat-header-cell *matHeaderCellDef> ExportLeadingReactive </th>
+      <td mat-cell *matCellDef="let currentFileRecords"> {{currentFileRecords.exportLeadingReactive}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="ImportLaggingReactive">
+      <th mat-header-cell *matHeaderCellDef> ImportLaggingReactive </th>
+      <td mat-cell *matCellDef="let currentFileRecords"> {{currentFileRecords.importLaggingReactive}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="ExportLaggingReactive">
+      <th mat-header-cell *matHeaderCellDef> ExportLaggingReactive </th>
+      <td mat-cell *matCellDef="let currentFileRecords"> {{currentFileRecords.exportLaggingReactive}} </td>
+    </ng-container> 
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table> 
+  <mat-paginator>
+
+
