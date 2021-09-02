@@ -22,8 +22,6 @@ export class EditComponent implements OnInit {
   ngOnInit(): void {
     this.sub = this.route.queryParams.subscribe(params => {
       this.currentRecord = this.data;
-      console.log("the value of the current record is ");
-      console.log(JSON.stringify(this.currentRecord));
     });
   }
 

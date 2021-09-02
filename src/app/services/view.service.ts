@@ -34,14 +34,6 @@ getFileRecords(fileId : number) : Observable<FileRecord[]> {
 
 UpdateRecord(record : FileRecord) : Observable<FileRecord>  {
 
-  console.log("entered server updateRecord")
- // var testEmptyRecord : EmptyRecord = new EmptyRecord;
-
- // testEmptyRecord.Id = record.id;
-
-  console.log(record);
-
-
   return this.http.post<FileRecord>(updaterecordsUrl, record, httpOptions);
   }
 }

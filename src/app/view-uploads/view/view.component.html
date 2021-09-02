@@ -15,5 +15,22 @@
   </ul>
 </div></div>
 </mat-tab>
-<mat-tab label="Chart"> <app-graph [fileId]='latestFileId'></app-graph> </mat-tab>
+<mat-tab label="Chart"> 
+  
+  <kendo-chart>
+    <kendo-chart-title text="Energy Usage"></kendo-chart-title>
+    <kendo-chart-category-axis>
+        <kendo-chart-category-axis-item
+            [categories]="['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23']"
+            [title]="{ text: 'Hours' }">
+        </kendo-chart-category-axis-item>
+    </kendo-chart-category-axis>
+    <kendo-chart-series>
+      <kendo-chart-series-item type="line" [data]="exportValues">
+      </kendo-chart-series-item>
+      <kendo-chart-series-item type="line" [data]="importValues">
+      </kendo-chart-series-item>      
+    </kendo-chart-series>
+  </kendo-chart>
+</mat-tab>
 </mat-tab-group>

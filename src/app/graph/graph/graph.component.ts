@@ -18,14 +18,11 @@ export class GraphComponent implements OnInit {
 
    
   ngOnInit(): void {
-    console.log("The passed file Id is below:");
-    console.log(this.fileId);
     this.getFileRecords(this.fileId);
     this.getValues();
   }
 
   getFileRecords(FileId : number): void {
-    console.log(FileId);
     this.viewService.getFileRecords(FileId).
       subscribe((response : FileRecord[]) => {        
         this.currentRecords = response;
